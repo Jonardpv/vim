@@ -52,7 +52,9 @@ syntax on
 set background=dark
 
 if !has("gui_running")
-    colorscheme molokai
+    if filereadable("bundle/molokai/colors/molokai.vim")
+        colorscheme molokai
+    endif
     highlight Pmenu ctermbg=238 gui=bold
     set t_Co=256
 elseif has("gui_running")

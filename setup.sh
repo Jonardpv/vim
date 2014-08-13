@@ -1,11 +1,15 @@
 #!/bin/bash
 
-if [ -f ~/.vimrc ] ; then
+if [ -f ~/.vimrc ]; then
 	rm ~/.vimrc
 fi
 
 
 cd ~/.vim
+if [ -d bundle ]; then
+    rm -rf bundle after ftdetect
+fi
+
 mkdir -p bundle after/plugin ftdetect
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall '+colorscheme desert'

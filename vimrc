@@ -18,7 +18,6 @@ Plugin 'Indent-Guides'
 Plugin 'surround.vim'
 Plugin 'vimlatex'
 Plugin 'unimpaired.vim'
-Plugin 'perl-support.vim'
 Plugin 'Syntastic'
 Plugin 'Solarized'
 Plugin 'ctrlp.vim'
@@ -54,8 +53,9 @@ set background=dark
 if !has("gui_running")
     if filereadable("bundle/molokai/colors/molokai.vim")
         colorscheme molokai
+    else
+        colorscheme desert
     endif
-    highlight Pmenu ctermbg=238 gui=bold
     set t_Co=256
 elseif has("gui_running")
     colorscheme kraihlight
@@ -66,6 +66,8 @@ elseif has("gui_running")
     set guifont=Consolas\ 14
 end
 
+hi Pmenu ctermfg=white ctermbg=darkgrey guifg=white guibg=grey60
+hi PmenuSel ctermfg=black ctermbg=lightgrey guifg=grey60 guibg=white
 " Tabstops are 4 spaces
 set tabstop=4
 set shiftwidth=4

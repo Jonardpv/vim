@@ -23,8 +23,9 @@ Plugin 'Solarized'
 Plugin 'ctrlp.vim'
 Plugin 'UltiSnips'
 Plugin 'honza/vim-snippets'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'justinmk/vim-sneak'
+Plugin 'Valloric/YouCompleteMe'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
@@ -44,8 +45,8 @@ set termencoding=utf-8
 set nocompatible              " be iMproved, required
 
 au FileType xhtml set filetype=html
-au BufReadPost *.ezt set filetype=html
-au BufReadPost *.html.ep set filetype=html
+au BufReadPost '*.ezt' set filetype=html
+au BufReadPost '*.html.ep' set filetype=html
 
 syntax on
 set background=dark
@@ -139,15 +140,9 @@ set textwidth=80
 " leave my cursor where it was
 set nostartofline
 
-" Use line numbers
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
-"nnoremap <C-n> :call NumberToggle()<cr>
+set number
+set relativenumber
+
 :au FocusLost * :set number
 :au FocusGained * :set relativenumber
 autocmd InsertEnter * :set number
@@ -393,6 +388,8 @@ map <leader>cs :CtrlP ~/source<CR>
 " YouCompleteMe
 let g:ycm_key_list_select_completion=['<c-j>', '<Down>']
 let g:ycm_key_list_previous_completion=['<c-k>', '<Up>']
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger       = "<tab>"

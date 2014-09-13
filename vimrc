@@ -8,6 +8,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'fugitive.vim'
 Plugin 'buftabs'
+Plugin 'vim-perl/vim-perl'
 Plugin 'mojo.vim'
 Plugin 'molokai'
 Plugin 'tabular'
@@ -219,6 +220,9 @@ map <MouseMiddle> <esc>"*p
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
+"map ; :
+"nnoremap ;; ;
+
 let mapleader = ","
 let g:mapleader = ","
 
@@ -300,8 +304,8 @@ let gist_post_private = 1
 
 " Mojolicious
 let mojo_highlight_data = 1
-":let mojo_disable_html = 1
-":let mojo_no_helpers = 1
+let mojo_disable_html = 1
+"let mojo_no_helpers = 0
 
 " dont use Q for Ex mode
 map Q :q

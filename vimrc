@@ -17,7 +17,7 @@ Plugin 'The-NERD-tree'
 Plugin 'blackboard.vim'
 Plugin 'Indent-Guides'
 Plugin 'surround.vim'
-Plugin 'vimlatex'
+Plugin 'vim-latex/vim-latex'
 Plugin 'unimpaired.vim'
 Plugin 'Syntastic'
 Plugin 'Solarized'
@@ -67,6 +67,11 @@ elseif has("gui_running")
     set mousemodel=popup
     set guifont=Consolas\ 14
 end
+
+if &term == "xterm-color"
+    set t_kb=
+    fixdel
+endif
 
 hi Pmenu ctermfg=white ctermbg=darkgrey guifg=white guibg=grey60
 hi PmenuSel ctermfg=black ctermbg=lightgrey guifg=grey60 guibg=white
@@ -274,6 +279,7 @@ map <leader>t:  :Tabularize /:<CR>
 map <leader>t:: :Tabularize /:\zs<CR>
 map <leader>t,  :Tabularize /,<CR>
 map <leader>t\| :Tabularize /\|<CR>
+command! -nargs=1 -range TabFirst exec <line1> . ',' . <line2> . 'Tabularize /^[^' . escape(<q-args>, '\^$.[?*~') . ']*\zs' . escape(<q-args>, '\^$.[?*~')
 
 " Fugitive Shortcuts
 map <leader>s :Gstatus<CR>
@@ -324,7 +330,7 @@ map <F8> <Esc>:TagbarToggle<CR>
 nmap th :set hls!:set hls?
 
 " Enable indent folding
-set foldenable
+set nofoldenable
 set fdm=indent
 
 " Set space to toggle a fold
@@ -396,9 +402,13 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger       = "<tab>"
-let g:UltiSnipsJumpForwardTrigger  = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-let g:UltiSnipsSnippetDirectories  = ["snips"]
-let g:UltiSnipsListSnippets        = "<c-e>"
-let g:UltiSnipsEditSplit           = "vertical"
+let g:UltiSnipsExpandTrigger        = '<c-j>'
+let g:UltiSnipsJumpForwardTrigger   = '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger  = '<c-k>'
+"let g:UltiSnipsExpandTrigger       = '<tab>'
+"let g:UltiSnipsJumpForwardTrigger  = '<tab>'
+"let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+"let g:UltiSnipsSnippetDirectories  = ['snips']
+"let g:UltiSnipsListSnippets        = '<c-e>'
+"let g:UltiSnipsEditSplit           = 'vertical'
+

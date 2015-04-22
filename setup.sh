@@ -1,10 +1,7 @@
 #!/bin/bash
 
 if [ -f ~/.vimrc ]; then
-    rm ~/.vimrc
-    pushd .vim
-    rm -rf after bundle colors fonts ftdetect
-    popd
+    rm ~/.vim*
 fi
 
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim

@@ -56,11 +56,7 @@ syntax on
 set background=dark
 
 if !has("gui_running")
-    if filereadable("bundle/molokai/colors/molokai.vim")
-        colorscheme molokai
-    else
-        colorscheme desert
-    endif
+    colorscheme kraihlight
     set t_Co=256
 elseif has("gui_running")
     colorscheme kraihlight

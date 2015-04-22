@@ -25,7 +25,10 @@ Plugin 'ctrlp.vim'
 Plugin 'UltiSnips'
 Plugin 'honza/vim-snippets'
 Plugin 'justinmk/vim-sneak'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'rodjek/vim-puppet'
+Plugin 'ingydotnet/yaml-vim'
+
+"Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -396,19 +399,19 @@ endif
 map <leader>cs :CtrlP ~/source<CR>
 
 " YouCompleteMe
-let g:ycm_key_list_select_completion=['<c-j>', '<Down>']
-let g:ycm_key_list_previous_completion=['<c-k>', '<Up>']
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"let g:ycm_key_list_select_completion=['<c-j>', '<Down>']
+"let g:ycm_key_list_previous_completion=['<c-k>', '<Up>']
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger        = '<c-j>'
-let g:UltiSnipsJumpForwardTrigger   = '<c-j>'
-let g:UltiSnipsJumpBackwardTrigger  = '<c-k>'
-"let g:UltiSnipsExpandTrigger       = '<tab>'
-"let g:UltiSnipsJumpForwardTrigger  = '<tab>'
-"let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+"let g:UltiSnipsExpandTrigger        = '<c-j>'
+"let g:UltiSnipsJumpForwardTrigger   = '<c-j>'
+"let g:UltiSnipsJumpBackwardTrigger  = '<c-k>'
+let g:UltiSnipsExpandTrigger       = '<tab>'
+let g:UltiSnipsJumpForwardTrigger  = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 "let g:UltiSnipsSnippetDirectories  = ['snips']
-"let g:UltiSnipsListSnippets        = '<c-e>'
+let g:UltiSnipsListSnippets        = '<c-e>'
 "let g:UltiSnipsEditSplit           = 'vertical'
 

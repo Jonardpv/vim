@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [ -f ~/.vimrc ]; then
-    rm ~/.vim*
-fi
+[ -f ~/.vimrc ] && rm ~/.vimrc
+[ -d ~/.vim/bundle/Vundle.vim ] && rm -rf ~/.vim/bundle/Vundle.vim
+git clean -dxf
 
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall

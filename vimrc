@@ -7,26 +7,25 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'fugitive.vim'
-Plugin 'buftabs'
 Plugin 'vim-perl/vim-perl'
 Plugin 'mojo.vim'
 Plugin 'molokai'
+Plugin 'ap/vim-buftabline'
 Plugin 'tabular'
 Plugin 'tagbar'
-Plugin 'The-NERD-tree'
 Plugin 'Indent-Guides'
 Plugin 'surround.vim'
 Plugin 'vim-latex/vim-latex'
 Plugin 'unimpaired.vim'
 Plugin 'Syntastic'
 Plugin 'ctrlp.vim'
-"Plugin 'UltiSnips'
+Plugin 'UltiSnips'
 Plugin 'honza/vim-snippets'
 Plugin 'justinmk/vim-sneak'
 Plugin 'rodjek/vim-puppet'
 Plugin 'ingydotnet/yaml-vim'
-
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'The-NERD-tree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -259,8 +258,8 @@ map <leader>t8 :setlocal shiftwidth=8<cr>
 " Delete buffer
 nmap <leader>bd :bdelete<cr>
 " Map Ctrl-left and Ctrl-right To the next buffer
-noremap <C-left> :bprev!<CR>
-noremap <C-right> :bnext!<CR>
+noremap <C-right> :bnext<CR>
+noremap <C-left> :bprev<CR>
 
 " Yank/paste to the OS clipboard with ,y and ,p
 nmap <leader>y "+y
@@ -313,15 +312,8 @@ let mojo_disable_html = 1
 " dont use Q for Ex mode
 map Q :q
 
-" Sidebar folder navigation
-let NERDTreeShowLineNumbers=1
-let NERDTreeShowBookmarks=1
-let NERDTreeChDirMode=2
-let NERDTreeWinSize=35
-let NERDTreeQuitOnOpen=1
-map <F7> <Esc>:NERDTreeToggle<CR>
-
 " Tagbar
+map <F7> <Esc>:NERDTreeToggle<CR>
 map <F8> <Esc>:TagbarToggle<CR>
 
 nmap th :set hls!:set hls?
@@ -393,19 +385,44 @@ endif
 map <leader>cs :CtrlP ~/source<CR>
 
 " YouCompleteMe
+"let g:ycm_key_list_select_completion=[]
+"let g:ycm_key_list_previous_completion=[]
 "let g:ycm_key_list_select_completion=['<c-j>', '<Down>']
 "let g:ycm_key_list_previous_completion=['<c-k>', '<Up>']
-"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 
 " UltiSnips
-"let g:UltiSnipsExpandTrigger        = '<c-j>'
-"let g:UltiSnipsJumpForwardTrigger   = '<c-j>'
+" let g:UltiSnipsExpandTrigger="<c-j>"
+"let g:UltiSnipsJumpForwardTrigger   = /'<c-j>'
 "let g:UltiSnipsJumpBackwardTrigger  = '<c-k>'
-let g:UltiSnipsExpandTrigger       = '<tab>'
-let g:UltiSnipsJumpForwardTrigger  = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+"let g:UltiSnipsExpandTrigger       = '<tab>'
+"let g:UltiSnipsJumpForwardTrigger  = '<tab>'
+"let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 "let g:UltiSnipsSnippetDirectories  = ['snips']
-let g:UltiSnipsListSnippets        = '<c-e>'
+"let g:UltiSnipsListSnippets        = '<c-e>'
 "let g:UltiSnipsEditSplit           = 'vertical'
+
+" NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+nnoremap <silent> <Leader>f :NERDTreeFind<CR>
+let NERDTreeQuitOnOpen = 0
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+" close tab if NERDTree is last window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" nerd-tree like netrw
+""let g:netrw_banner = 0
+"let g:netrw_liststyle = 3
+"let g:netrw_browse_split = 4
+"let g:netrw_altv = 1
+"let g:netrw_winsize = 25
+"augroup ProjectDrawer
+"  autocmd!
+"  autocmd VimEnter * :Vexplore
+"augroup END
+
+" `gf` opens file under cursor in a new vertical split
+nnoremap gf :vertical wincmd f<CR>
 

@@ -13,5 +13,10 @@ vim +PluginInstall +qall
 
 ln -s ~/.vim/vimrc ~/.vimrc
 
+pushd ~/.vim/bundle/YouCompleteMe || return
+./install.py --all
+popd || return
+
 echo
 echo "Installed and configured .vim, have fun."
+

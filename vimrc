@@ -8,7 +8,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'fugitive.vim'
 Plugin 'vim-perl/vim-perl'
-Plugin 'mojo.vim'
+Plugin 'mbudde/mojo.vim'
 Plugin 'molokai'
 Plugin 'ap/vim-buftabline'
 Plugin 'tabular'
@@ -96,7 +96,7 @@ set wrapscan
 set smartcase
 
 " Make command line two lines high
-set ch=2
+set ch=1
 
 " No visual bell, no beeping
 set novisualbell " don't blink
@@ -351,8 +351,6 @@ autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 autocmd! bufreadpost,bufwritepost *.cpp,*.c,*.h,*.pl,*.pm,*.py,*.rb silent! !ctags -R --c++-kinds=+p --fields=+iaS --extra=+q * &
 map <F6> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
 
-
-
 function! ToggleMouse()
     if &mouse == 'a'
         set mouse=
@@ -406,23 +404,9 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nnoremap <silent> <Leader>f :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen = 0
-let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeAutoDeleteBuffer = 0
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 " close tab if NERDTree is last window
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-" nerd-tree like netrw
-""let g:netrw_banner = 0
-"let g:netrw_liststyle = 3
-"let g:netrw_browse_split = 4
-"let g:netrw_altv = 1
-"let g:netrw_winsize = 25
-"augroup ProjectDrawer
-"  autocmd!
-"  autocmd VimEnter * :Vexplore
-"augroup END
-
-" `gf` opens file under cursor in a new vertical split
-nnoremap gf :vertical wincmd f<CR>
-
+"autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
+"

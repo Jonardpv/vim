@@ -1,4 +1,5 @@
 filetype off
+set nocompatible
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -40,17 +41,15 @@ filetype plugin indent on
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+syntax on
+set background=dark
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
-set nocompatible              " be iMproved, required
 
 au FileType xhtml set filetype=html
 au BufReadPost '*.ezt' set filetype=html
 au BufReadPost '*.html.ep' set filetype=html
-
-syntax on
-set background=dark
 
 if !has("gui_running")
     colorscheme kraihlight
@@ -227,7 +226,7 @@ map! <S-Insert> <MiddleMouse>
 let mapleader = ","
 let g:mapleader = ","
 
-nmap <leader>w :w!<cr><esc>
+nmap <leader>w :w!<CR><esc>
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
@@ -237,8 +236,8 @@ nmap <leader>l :set list!<CR>
 "set cursorcolumn
 
 " Underline the current line with '='
-nmap <silent> ,u= :t.\|s/./=/g\|:nohls<cr>
-nmap <silent> ,u- :t.\|s/./-/g\|:nohls<cr>
+nmap <silent> ,u= :t.\|s/./=/g\|:nohls<CR>
+nmap <silent> ,u- :t.\|s/./-/g\|:nohls<CR>
 
 " Underline the current line with dashes in normal mode
 nnoremap <F5> yyp<c-v>$r-
@@ -251,9 +250,9 @@ inoremap <F5> <Esc>yyp<c-v>$r-A
 au! BufWritePost .vimrc,vimrc source %
 map <leader>e :e! ~/.vimrc<cr>
 
-map <leader>t2 :setlocal shiftwidth=2<cr>
-map <leader>t4 :setlocal shiftwidth=4<cr>
-map <leader>t8 :setlocal shiftwidth=8<cr>
+map <leader>t2 :setlocal shiftwidth=2<CR>
+map <leader>t4 :setlocal shiftwidth=4<CR>
+map <leader>t8 :setlocal shiftwidth=8<CR>
 
 " Delete buffer
 nmap <leader>bd :bdelete<cr>
@@ -369,7 +368,12 @@ let g:Tex_MultipleCompileFormats='pdf, aux'
 let g:Tex_ViewRule_pdf='xpdf'
 
 " ctrlp
-let g:ctrlp_map = '<leader>cp'
+"let g:ctrlp_map = '<leader>cp'
+let g:ctrlp_map = '<c-f>'
+map <c-b> :CtrlPBuffer<CR>
+map <leader>j :CtrlP<CR>
+map <leader>cp :CtrlP<CR>
+map <leader>cs :CtrlP ~/source<CR>
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip

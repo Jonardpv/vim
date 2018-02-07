@@ -19,7 +19,7 @@ Plugin 'surround.vim'
 Plugin 'vim-latex/vim-latex'
 Plugin 'unimpaired.vim'
 Plugin 'Syntastic'
-Plugin 'ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'UltiSnips'
 Plugin 'honza/vim-snippets'
 Plugin 'justinmk/vim-sneak'
@@ -370,11 +370,12 @@ let g:Tex_ViewRule_pdf='xpdf'
 " ctrlp
 "let g:ctrlp_map = '<leader>cp'
 let g:ctrlp_map = '<c-f>'
-map <c-b> :CtrlPBuffer<CR>
-map <leader>j :CtrlP<CR>
+map <c-b> :CtrlPBuffer<cr>
+map <leader>j :CtrlP<cr>
 map <leader>cp :CtrlP<CR>
 map <leader>cs :CtrlP ~/source<CR>
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_max_height = 20
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
@@ -383,8 +384,6 @@ let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-"map <leader>cp :CtrlP<CR>
-map <leader>cs :CtrlP ~/source<CR>
 
 " YouCompleteMe
 let g:ycm_key_list_select_completion=[]

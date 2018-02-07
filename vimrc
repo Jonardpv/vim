@@ -345,7 +345,7 @@ vnoremap <silent> _t :!perltidy -q<Enter>
 set keywordprg=perldoc\ -f "K
 
 " Remove any trailing whitespace that is in the file
-autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+autocmd BufRead,BufWrite *.cpp,*.c,*.h,*.pl,*.pm,*.py,*.rb,*.txt if ! &bin | silent! %s/\s\+$//ge | endif
 
 " Generate tags on opening an existing file and on saving a file.
 autocmd! bufreadpost,bufwritepost *.cpp,*.c,*.h,*.pl,*.pm,*.py,*.rb silent! !ctags -R --c++-kinds=+p --fields=+iaS --extra=+q * &

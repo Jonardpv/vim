@@ -11,7 +11,7 @@ Plugin 'fugitive.vim'
 Plugin 'vim-perl/vim-perl'
 Plugin 'mbudde/mojo.vim'
 Plugin 'molokai'
-Plugin 'ap/vim-buftabline'
+Plugin 'zefei/vim-wintabs'
 Plugin 'tabular'
 Plugin 'tagbar'
 Plugin 'Indent-Guides'
@@ -254,12 +254,6 @@ map <leader>t2 :setlocal shiftwidth=2<CR>
 map <leader>t4 :setlocal shiftwidth=4<CR>
 map <leader>t8 :setlocal shiftwidth=8<CR>
 
-" Delete buffer
-nmap <leader>bd :bdelete<cr>
-" Map Ctrl-left and Ctrl-right To the next buffer
-noremap <C-right> :bnext<CR>
-noremap <C-left> :bprev<CR>
-
 " Yank/paste to the OS clipboard with ,y and ,p
 nmap <leader>y "+y
 nmap <leader>Y "+yy
@@ -416,5 +410,27 @@ let NERDTreeMouseMode = 1
 
 "autocmd FileType nerdtree cnoreabbrev <buffer> bd <nop>
 " close tab if NERDTree is last window
-autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | NERDTreeClose | endif
+"autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
+
+nmap <leader>to :tabnew<CR>
+nmap <leader>tn :tabnext<CR>
+nmap <leader>tp :tabprevious<CR>
+
+" Wintabs
+noremap <C-right> :WintabsNext<CR>
+noremap <C-left> :WintabsPrevious<CR>
+nmap <leader>bd :WintabsClose<CR>
+nmap <leader>bo :WintabsOnly<CR>
+nmap <leader>bwc :WintabsCloseWindow<CR>
+nmap <leader>bwo :WintabsOnlyWindow<CR>
+nmap <leader>btc :WintabsCloseVimtab<CR>
+nmap <leader>bto :WintabsOnlyVimtab<CR>
+map <C-H> <Plug>(wintabs_previous)
+map <C-L> <Plug>(wintabs_next)
+map <C-T>c <Plug>(wintabs_close)
+map <C-T>o <Plug>(wintabs_only)
+map <C-W>c <Plug>(wintabs_close_window)
+map <C-W>o <Plug>(wintabs_only_window)
+command! Tabc WintabsCloseVimtab
+command! Tabo WintabsOnlyVimtab
 

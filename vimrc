@@ -400,13 +400,18 @@ map <leader>cs :CtrlP ~/source<CR>
 "let g:UltiSnipsEditSplit           = 'vertical'
 
 " NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nnoremap <silent> <Leader>f :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen = 0
-let NERDTreeAutoDeleteBuffer = 0
+let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+let NERDTreeChDirMode = 2
+let NERDTreeMouseMode = 1
+
+
+"autocmd FileType nerdtree cnoreabbrev <buffer> bd <nop>
 " close tab if NERDTree is last window
-"autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
-"
+autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | NERDTreeClose | endif
+

@@ -14,7 +14,7 @@ vim +PluginInstall +qall
 ln -s ~/.vim/vimrc ~/.vimrc
 
 pushd ~/.vim/bundle/YouCompleteMe || return
-./install.py --all
+./install.py --clang-completer --js-completer
 popd || return
 
 echo

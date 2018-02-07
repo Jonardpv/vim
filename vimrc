@@ -383,8 +383,8 @@ endif
 map <leader>cs :CtrlP ~/source<CR>
 
 " YouCompleteMe
-"let g:ycm_key_list_select_completion=[]
-"let g:ycm_key_list_previous_completion=[]
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
 "let g:ycm_key_list_select_completion=['<c-j>', '<Down>']
 "let g:ycm_key_list_previous_completion=['<c-k>', '<Up>']
 

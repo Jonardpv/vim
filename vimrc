@@ -1,10 +1,9 @@
 filetype off
 set nocompatible
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+set rtp+=$HOME/vimfiles/bundle/Vundle.vim
+let path='$HOME/vimfiles/bundle'
+call vundle#rc(path)
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'fugitive.vim'
@@ -61,7 +60,7 @@ elseif has("gui_running")
     set lines=24 columns=85
     set guioptions-=T
     set mousemodel=popup
-    set guifont=Consolas\ 14
+    set guifont=Consolas:h12:cANSI:qDRAFT
 end
 
 if &term == "xterm-color"
@@ -248,8 +247,8 @@ inoremap <F5> <Esc>yyp<c-v>$r-A
 
 
 " If I write vimrc then reload
-au! BufWritePost .vimrc,vimrc source %
-map <leader>e :e! ~/.vimrc<cr>
+au! BufWritePost vimrc source %
+map <leader>e :e! ~/vimfiles/vimrc<cr>
 
 map <leader>t2 :setlocal shiftwidth=2<CR>
 map <leader>t4 :setlocal shiftwidth=4<CR>
@@ -338,12 +337,15 @@ nnoremap <silent> _t :%!perltidy -q<Enter>
 vnoremap <silent> _t :!perltidy -q<Enter>
 set keywordprg=perldoc\ -f "K
 
+" Reset autocommands
+:autocmd!
+
 " Remove any trailing whitespace that is in the file
 autocmd BufRead,BufWrite *.cpp,*.c,*.h,*.pl,*.pm,*.py,*.rb,*.txt if ! &bin | silent! %s/\s\+$//ge | endif
 
 " Generate tags on opening an existing file and on saving a file.
 autocmd! bufreadpost,bufwritepost *.cpp,*.c,*.h,*.pl,*.pm,*.py,*.rb silent! !ctags -R --c++-kinds=+p --fields=+iaS --extra=+q * &
-map <F6> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
+map <F6> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
 
 function! ToggleMouse()
     if &mouse == 'a'
@@ -372,9 +374,9 @@ map <leader>cs :CtrlP ~/source<CR>
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_height = 20
 let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_user_command = 'find %s -type f'
+let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'

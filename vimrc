@@ -179,7 +179,7 @@ set showcmd " show the command being typed
 set showmatch " show matchingbrackets
 set ignorecase " case insensitive by default
 
-set autochdir
+set noautochdir
 
 " Setting up the directories
 function! InitializeDirectories()

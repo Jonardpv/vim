@@ -25,7 +25,6 @@ Plugin 'honza/vim-snippets'
 Plugin 'justinmk/vim-sneak'
 Plugin 'rodjek/vim-puppet'
 Plugin 'ingydotnet/yaml-vim'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'The-NERD-tree'
 Plugin 'PProvost/vim-ps1'
 
@@ -379,12 +378,6 @@ let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-
-" YouCompleteMe
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
-"let g:ycm_key_list_select_completion=['<c-j>', '<Down>']
-"let g:ycm_key_list_previous_completion=['<c-k>', '<Up>']
 
 " UltiSnips
 " let g:UltiSnipsExpandTrigger="<c-j>"

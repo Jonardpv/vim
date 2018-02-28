@@ -7,15 +7,11 @@ git clean -dxf
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
-#pushd bundle/YouCompleteMe/
-#./install.sh
-#popd
-
 ln -s ~/.vim/vimrc ~/.vimrc
 
-pushd ~/.vim/bundle/YouCompleteMe || return
-./install.py --clang-completer --js-completer
-popd || return
+# pushd ~/.vim/bundle/YouCompleteMe || return
+# ./install.py --clang-completer --js-completer
+# popd || return
 
 echo
 echo "Installed and configured .vim, have fun."

@@ -27,6 +27,7 @@ Plugin 'ingydotnet/yaml-vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'The-NERD-tree'
 Plugin 'PProvost/vim-ps1'
+Plugin 'ludovicchabant/vim-gutentags'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -120,9 +121,6 @@ function! HasPaste()
         return ''
     endif
 endfunction
-
-" Look for ctags
-set tags=./tags;$HOME/source
 
 set mouse=a
 set mousehide
@@ -342,10 +340,6 @@ set keywordprg=perldoc\ -f "K
 
 " Remove any trailing whitespace that is in the file
 autocmd BufRead,BufWrite *.cpp,*.c,*.h,*.pl,*.pm,*.py,*.rb,*.txt if ! &bin | silent! %s/\s\+$//ge | endif
-
-" Generate tags on opening an existing file and on saving a file.
-autocmd! bufreadpost,bufwritepost *.cpp,*.c,*.h,*.pl,*.pm,*.py,*.rb silent! !ctags -R --c++-kinds=+p --fields=+iaS --extra=+q * &
-map <F6> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
 
 function! ToggleMouse()
     if &mouse == 'a'

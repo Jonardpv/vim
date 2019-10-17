@@ -61,7 +61,7 @@ elseif has("gui_running")
     set lines=24 columns=85
     set guioptions-=T
     set mousemodel=popup
-    set guifont=Consolas\ 14
+    set guifont=Consolas\ 12
 end
 
 if &term == "xterm-color"

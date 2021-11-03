@@ -112,7 +112,7 @@ set hidden
 set laststatus=2
 " Set the status line the way i like it
 "set stl=%{HasPaste()}%f%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
-set statusline=%{HasPaste()}%t%y%m%r%h\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]\ %{fugitive#statusline()}\ Buf:#%n%=Line:%l/%L[%p%%]\ Col:%v\ [%b][0x%B]
+set statusline=%{HasPaste()}%f%y%m%r%h\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]\ %{fugitive#statusline()}\ Buf:#%n%=Line:%l/%L[%p%%]\ Col:%v\ [%b][0x%B]
 
 function! HasPaste()
     if &paste

@@ -27,6 +27,7 @@ Plugin 'rodjek/vim-puppet'
 Plugin 'ingydotnet/yaml-vim'
 Plugin 'The-NERD-tree'
 Plugin 'PProvost/vim-ps1'
+Plugin 'pearofducks/ansible-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()

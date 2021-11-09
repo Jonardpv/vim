@@ -404,10 +404,12 @@ let NERDTreeMouseMode = 1
 nmap <leader>to :tabnew<CR>
 nmap <leader>tn :tabnext<CR>
 nmap <leader>tp :tabprevious<CR>
+"noremap <C-right> :bnext<CR>
+"noremap <C-left> :bprev<CR>
+map [C <Plug>(wintabs_next)
+map [D <Plug>(wintabs_previous)
 
 " Wintabs
-noremap <C-right> :WintabsNext<CR>
-noremap <C-left> :WintabsPrevious<CR>
 nmap <leader>bd :WintabsClose<CR>
 nmap <leader>bo :WintabsOnly<CR>
 nmap <leader>bwc :WintabsCloseWindow<CR>

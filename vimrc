@@ -26,6 +26,7 @@ Plugin 'justinmk/vim-sneak'
 Plugin 'rodjek/vim-puppet'
 Plugin 'ingydotnet/yaml-vim'
 Plugin 'The-NERD-tree'
+Plugin 'ryanoasis/vim-devicons'
 Plugin 'PProvost/vim-ps1'
 Plugin 'pearofducks/ansible-vim'
 

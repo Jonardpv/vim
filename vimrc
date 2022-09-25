@@ -347,7 +347,7 @@ set keywordprg=perldoc\ -f "K
 autocmd BufRead,BufWrite *.cpp,*.c,*.h,*.pl,*.pm,*.py,*.rb,*.txt if ! &bin | silent! %s/\s\+$//ge | endif
 
 " Generate tags on opening an existing file and on saving a file.
-autocmd! bufreadpost,bufwritepost *.cpp,*.c,*.h,*.pl,*.pm,*.py,*.rb silent! !ctags -R --c++-kinds=+p --fields=+iaS --extra=+q * &
+" autocmd! bufreadpost,bufwritepost *.cpp,*.c,*.h,*.pl,*.pm,*.py,*.rb silent! !ctags -R --c++-kinds=+p --fields=+iaS --extra=+q * &
 map <F6> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR>
 
 function! ToggleMouse()

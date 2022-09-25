@@ -29,6 +29,7 @@ Plugin 'The-NERD-tree'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'PProvost/vim-ps1'
 Plugin 'pearofducks/ansible-vim'
+Plugin 'hashivim/vim-terraform'
 
 " All of your Plugins must be added before the following line
 call vundle#end()

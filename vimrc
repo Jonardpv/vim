@@ -260,11 +260,13 @@ nmap <leader>P "+P
 
 " Tabularize
 map <leader>t&  :Tabularize /&<CR>
-map <leader>t=  :Tabularize /=<CR>
+map <leader>t=  :Tabularize /=\zs<CR>
+map <leader>t== :Tabularize /=<CR>
 map <leader>th  :Tabularize /=><CR>
-map <leader>t:  :Tabularize /:<CR>
-map <leader>t:: :Tabularize /:\zs<CR>
-map <leader>t,  :Tabularize /,<CR>
+map <leader>t:  :Tabularize /:\zs<CR>
+map <leader>t:: :Tabularize /:<CR>
+map <leader>t,  :Tabularize /,\zs<CR>
+map <leader>t,, :Tabularize /,<CR>
 map <leader>t\| :Tabularize /\|<CR>
 command! -nargs=1 -range TabFirst exec <line1> . ',' . <line2> . 'Tabularize /^[^' . escape(<q-args>, '\^$.[?*~') . ']*\zs' . escape(<q-args>, '\^$.[?*~')
 

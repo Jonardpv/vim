@@ -413,8 +413,8 @@ nmap <leader>tn :tabnext<CR>
 nmap <leader>tp :tabprevious<CR>
 "noremap <C-right> :bnext<CR>
 "noremap <C-left> :bprev<CR>
-map [C <Plug>(wintabs_next)
-map [D <Plug>(wintabs_previous)
+map <C-right> <Plug>(wintabs_next)
+map <C-left> <Plug>(wintabs_previous)
 
 " Wintabs
 nmap <leader>bd :WintabsClose<CR>

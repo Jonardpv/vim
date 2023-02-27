@@ -30,6 +30,7 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'PProvost/vim-ps1'
 Plugin 'pearofducks/ansible-vim'
 Plugin 'hashivim/vim-terraform'
+Plugin 'wesQ3/vim-windowswap'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
@@ -458,4 +459,8 @@ let g:ansible_normal_keywords_highlight = 'Constant'
 let g:ansible_loop_keywords_highlight = 'Statement'
 let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby' }
 let g:ansible_ftdetect_filename_regex = '\v(playbook|site|main|local|requirements)\.ya?ml$'
+let g:windowswap_map_keys = 0 "prevent default bindings
+nnoremap <silent> <leader>yw :call WindowSwap#MarkWindowSwap()<CR>
+nnoremap <silent> <leader>pw :call WindowSwap#DoWindowSwap()<CR>
+nnoremap <silent> <leader>ww :call WindowSwap#EasyWindowSwap()<CR>
 

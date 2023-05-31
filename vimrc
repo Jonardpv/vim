@@ -75,9 +75,9 @@ endif
 hi Pmenu ctermfg=white ctermbg=darkgrey guifg=white guibg=grey60
 hi PmenuSel ctermfg=black ctermbg=lightgrey guifg=grey60 guibg=white
 " Tabstops are 4 spaces
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set smarttab
 set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
